@@ -1,0 +1,55 @@
+.body {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 50% 40%;
+  grid-template-areas:
+    ".conta"
+    ".conte"
+    "footer";
+}
+
+.container1 {
+  height: 350px;
+  background-color: #1abc9c;
+  padding: 5em 5em;
+  display: grid;
+  grid-template-columns: 60% auto;
+}
+
+.conte {
+  padding-top: 25px;
+}
+
+h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: 600;
+  font-size: 2.5em;
+  color: white;
+}
+
+h3 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: 400;
+  color: white;
+}
+
+.kotak {
+  padding: 0em 10em;
+  display: grid;
+  position: relative;
+  bottom: 50px;
+}
+
+@media only screen and (max-width: 500px) {
+  .container1 {
+    height: auto;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+}

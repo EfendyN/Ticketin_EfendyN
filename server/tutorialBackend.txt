@@ -1,0 +1,44 @@
+cara buat backend:
+-buat folder, isinya server.js(cari isi serverjs di inet)
+-copy depedencies dari project sebelumnya, trus ketik npm i
+-tambahkan mon pada package json bagian script/start "nodemon" server.js
+-npm init -y
+-npm sequelize init -y
+-buat table:
+npx sequelize-cli model:generate --name user --attributes name:string,username:string,email:string,password:string,gender:string,phone:string,address:string
+npx sequelize-cli model:generate --name type --attributes name:string
+npx sequelize-cli model:generate --name train --attributes nameTrain:string,typeTrain:integer,dateStart:string,startStation:string,startTime:string,destinationStation:string,arrivalTime:string,price:integer,qty:integer
+npx sequelize-cli model:generate --name payment --attributes trainId:integer,userId:integer,qty:integer,totalPrice:integer,status:string
+-config: sesuaikan nama config ama database
+-buat seeder:
+npx sequelize-cli seed:generate --name demo-user
+npx sequelize-cli seed:generate --name demo-type
+npx sequelize-cli seed:generate --name demo-train
+npx sequelize-cli seed:generate --name demo-payment
+-edit seeder:
+--hapus command-commandnya
+--sesuaikan bagian atas dengan models, hapus dataTypesnya, sesuaikan isinya dengan data yg diinginkan
+-buat relasi pada models(jika ada relasi):
+namaModels.belongTo(models.modelsTujuan, { foreignKey: "attributesPadaModelsSkrg" });
+-buat relasi pada migrations:
+typeTrain: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "types",
+          key: "id"
+        },
+        onUpdate: "cascade",
+        onDelete: "cascade"
+      }
+-migrate:
+npx sequelize db:migrate(:undo:all)
+-seed:
+npx sequelize db:seed:all
+-buat folder controllers
+--buat file auth.js, isinya copy aja dari file project sebelumnya
+-buat file .env, isinya copy aja dari file project sebelumnya
+-buat file .gitignore, isinya copy aja dari file project sebelumnya
+-buat folder routes
+--buat file index.js, isinya copy aja dari file project sebelumnya
+copy aja isi file macem macem kek di controllers dari project sebelumnya

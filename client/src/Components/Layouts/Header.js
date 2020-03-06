@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./css/Header.css";
 import { withStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -62,7 +63,7 @@ class Header extends Component {
     const { classes } = this.props;
 
     return (
-      <AppBar position="static">
+      <AppBar className="Navbar" color="transparent" position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Ticket-in
